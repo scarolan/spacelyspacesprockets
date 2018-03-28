@@ -1,0 +1,9 @@
+{
+  "check": {
+    "id": "ping",
+    "name": "Ping check google.com",
+    "args": ["ping","-c1","google.com"],
+    "interval": "30s",
+    "timeout": "1s"
+  }
+}

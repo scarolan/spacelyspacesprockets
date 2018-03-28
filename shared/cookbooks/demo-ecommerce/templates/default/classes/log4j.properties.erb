@@ -1,0 +1,79 @@
+#######################################################################
+# Logging configurations for the application happen here.
+#
+# Be sure to set the rollingfile's path to an appropriate path on your file 
+# system where you want log messages to be stored.
+#
+# NOTE: log files must be writable by the application container.
+#######################################################################
+
+# Root Logger for all classes (send to stdout).
+log4j.rootLogger=INFO, rollingfile, stdout
+
+# Logging level for softslate classes.
+log4j.logger.com.softslate.commerce=INFO
+
+# Rotating file logger, rollingfile.
+log4j.appender.rollingfile=org.apache.log4j.RollingFileAppender
+log4j.appender.rollingfile.File=/usr/share/tomcat/logs/softslate.log
+log4j.appender.rollingfile.MaxFileSize=10000KB
+log4j.appender.rollingfile.MaxBackupIndex=5
+log4j.appender.rollingfile.Append=true
+log4j.appender.rollingfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.rollingfile.layout.ConversionPattern=%d [%t] (%F:%L) %-5p %c - %m%n
+
+# Customer audit log - one entry per request
+log4j.logger.com.softslate.commerce.customer.AuditLog=INFO, customerauditlog
+log4j.appender.customerauditlog=org.apache.log4j.RollingFileAppender
+log4j.appender.customerauditlog.File=/usr/share/tomcat/logs/softslate_customer.log
+log4j.appender.customerauditlog.MaxFileSize=100000KB
+log4j.appender.customerauditlog.MaxBackupIndex=5
+log4j.appender.customerauditlog.Append=true
+log4j.appender.customerauditlog.layout=org.apache.log4j.PatternLayout
+log4j.appender.customerauditlog.layout.ConversionPattern=%d%m%n
+
+# Administrator audit log - one entry per request
+log4j.logger.com.softslate.commerce.administrator.AuditLog=INFO, adminauditlog
+log4j.appender.adminauditlog=org.apache.log4j.RollingFileAppender
+log4j.appender.adminauditlog.File=/usr/share/tomcat/logs/softslate_admin.log
+log4j.appender.adminauditlog.MaxFileSize=100000KB
+log4j.appender.adminauditlog.MaxBackupIndex=5
+log4j.appender.adminauditlog.Append=true
+log4j.appender.adminauditlog.layout=org.apache.log4j.PatternLayout
+log4j.appender.adminauditlog.layout.ConversionPattern=%d%m%n
+
+# stdout - logs to standard output
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d [%t] (%F:%L) %-5p %c - %m%n
+
+# Emailer is an appender that logs to an email address.
+#log4j.appender.Emailer=org.apache.log4j.net.SMTPAppender
+#log4j.appender.Emailer.layout=org.apache.log4j.PatternLayout
+#log4j.appender.Emailer.layout.ConversionPattern=%d [%t] (%F:%L) %-5p %c - %m%n
+#log4j.appender.Emailer.From=no-reply@softslate.com
+#log4j.appender.Emailer.To=errors@softslate.com
+#log4j.appender.Emailer.Subject=SoftSlate Commerce Error
+#log4j.appender.Emailer.SMTPHost=localhost
+#log4j.appender.Emailer.Threshold=ERROR
+#log4j.appender.Emailer.BufferSize=5
+
+# Hibernate logger settings
+log4j.logger.org.hibernate=info
+#log4j.logger.org.hibernate.hql.ast.AST=debug
+log4j.logger.org.hibernate.SQL=debug
+#log4j.logger.org.hibernate.type=debug
+log4j.logger.org.hibernate.tool.hbm2ddl=debug
+#log4j.logger.org.hibernate.hql=debug
+#log4j.logger.org.hibernate.cache=info
+#log4j.logger.org.hibernate.cache.StandardQueryCache=debug
+#log4j.logger.org.hibernate.cache.ReadWriteCache=debug
+#log4j.logger.org.hibernate.cache.EhCache=debug
+#log4j.logger.org.hibernate.transaction=debug
+#log4j.logger.org.hibernate.jdbc=debug
+log4j.logger.org.hibernate.engine=info
+log4j.logger.org.hibernate.engine.QueryParameters=debug
+log4j.logger.org.hibernate.engine.HQLQueryPlan=debug
+log4j.logger.org.hibernate.impl=debug
+log4j.logger.org.hibernate.impl.SessionFactoryImpl=info
+

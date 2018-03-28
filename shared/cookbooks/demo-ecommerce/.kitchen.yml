@@ -1,0 +1,45 @@
+---
+driver:
+  name: ec2
+  require_chef_omnibus: true
+  region: us-west-2
+  security_group_ids: sg-2560a741
+  subnet_id: subnet-5b32ef02
+  associate_public_ip: true
+  instance_type: c3.large
+  aws_ssh_key_id: chef_demo_2x
+  user_data: 'C:/Users/chef/ubuntu_user_data'
+  tags:
+    Name: "Chef Demo Test Kitchen Instance"
+    created-by: "test-kitchen"
+    user: Administrator
+
+transport:
+  username: ubuntu
+  ssh_key: ~/.ssh/id_rsa
+
+provisioner:
+  name: chef_zero
+  client_rb:
+    data_collector.server_url: 'https://automate.automate-demo.com/data-collector/v0/'
+    data_collector.token: '93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'
+    data_collector.raise_on_failure: true
+    ssl_verify_mode: ':verify_none'
+    verify_api_cert: false
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[bjc-ecommerce::tksetup]
+      - recipe[bjc-ecommerce::default]
+    attributes:
+    verifier:
+      inspec_tests:
+        - name: Planet-Express-SSL
+          url: https://github.com/ChefRycar/planetexpress-ssl/archive/3.0.1.tar.gz
