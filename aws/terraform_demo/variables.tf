@@ -9,7 +9,7 @@ variable "user" {
 
 # Stock AMI
 variable "demoami" {
-  default = "ami-b63ae0ce"
+  default = "ami-26ebbc5c"
 }
 
 # # Packer-built AMI
