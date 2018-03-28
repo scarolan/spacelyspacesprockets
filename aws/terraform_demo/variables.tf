@@ -1,10 +1,10 @@
 variable "platform" {
-  default     = "centos"
+  default     = "rhel"
   description = "The OS Platform"
 }
 
 variable "user" {
-  default = "centos"
+  default = "ec2-user"
 }
 
 # Stock AMI
