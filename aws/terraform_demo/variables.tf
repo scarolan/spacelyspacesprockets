@@ -51,9 +51,9 @@ variable "subnets" {
   type = "map"
   description = "map of subnets to deploy your infrastructure in, must have as many keys as your server count (default 3), -var 'subnets={\"0\"=\"subnet-12345\",\"1\"=\"subnets-23456\"}' "
   default = {
-    "0" = "subnet-e03e55a9",
-    "1" = "subnet-28c83073",
-    "2" = "subnet-6e277709"
+    "0" = "subnet-ff6ca0b5",
+    "1" = "subnet-b0f3c99f",
+    "2" = "subnet-f85f64a5"
   }
 }
 
