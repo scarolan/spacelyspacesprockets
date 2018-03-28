@@ -1,0 +1,13 @@
+{
+  "service": {
+    "name": "vault",
+    "tags": [
+      "vault"
+    ],
+    "port": 8200,
+    "check": {
+      "script": "curl http://localhost:8200/v1/",
+      "interval": "10s"
+    }
+  }
+}

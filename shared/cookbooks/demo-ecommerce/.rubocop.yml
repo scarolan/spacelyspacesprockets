@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    - test/**/*
+    - spec/**/*
+    - recipes/chef_gate.rb
+LineLength:
+  Enabled: false
+StringLiterals:
+  Enabled: false
+HashSyntax:
+  Enabled: false
+SpaceInsideParens:
+  Enabled: false
+SpaceInsideBrackets:
+  Enabled: false
+SpaceInsideHashLiteralBraces:
+  Enabled: false
+Encoding:
+  Enabled: false
+LeadingCommentSpace:
+  Enabled: false
+AsciiComments:
+  Enabled: false
