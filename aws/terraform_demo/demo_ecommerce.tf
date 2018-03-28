@@ -24,6 +24,8 @@ resource "aws_instance" "spacelysprocketsdev" {
     # AWS Instance Tags
     tags {
         Name = "${var.ecomTagName}-dev-${count.index}"
+	owner = "scarolan@hashicorp.com"
+	TTL = "8"
     }
 
     # Disable these because Chef is already installed on our packer built AMI.
