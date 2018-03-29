@@ -14,8 +14,8 @@ variable "user" {
 
 # Packer-built AMI
 variable "demoami" {
-  default = "ami-02c46311a9120a828"
-  description = "eCommerce Website - CentOS 7 - v0.4"
+  default = "ami-0b31135ffcb46ac12"
+  description = "eCommerce Website - CentOS 7 - v0.5"
 }
 
 variable "key_name" {
