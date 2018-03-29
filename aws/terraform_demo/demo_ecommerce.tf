@@ -28,20 +28,19 @@ resource "aws_instance" "spacelysprocketsdev" {
 	TTL = "8"
     }
 
-    # Disable these because Chef is already installed on our packer built AMI.
-    # # Install Chef
-    provisioner "remote-exec" {
-         inline = [
-         "curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk"
-         ]
-     }
+    ## Install Chef
+    #provisioner "remote-exec" {
+    #    inline = [
+    #    "curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk"
+    #    ]
+    #}
 
     # # Install the development web server stack
-     provisioner "remote-exec" {
-         scripts = [
-             "${path.module}/../../shared/scripts/run_chef_dev.sh"
-         ]
-     }
+    #provisioner "remote-exec" {
+    #    scripts = [
+    #        "${path.module}/../../shared/scripts/run_chef_dev.sh"
+    #    ]
+    #}
 }
 
 resource "aws_security_group" "demo_ecommerce_dev" {
