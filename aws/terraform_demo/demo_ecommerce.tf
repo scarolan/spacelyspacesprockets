@@ -14,9 +14,9 @@ resource "aws_instance" "spacelysprocketsdev" {
     count = "${var.ecommerce_servers}"
     vpc_security_group_ids = ["${aws_security_group.demo_ecommerce_dev.id}"]
     # This puts one server in each subnet, up to the total number of subnets.
-    #subnet_id = "${lookup(var.subnets, count.index % var.ecommerce_servers)}"
+    subnet_id = "${lookup(var.subnets, count.index % var.ecommerce_servers)}"
     # This just crams them all in one subnet
-    subnet_id = "${var.subnets[0]}"
+    #subnet_id = "${var.subnets[0]}"
 
     # This is the provisioning user
     #connection {
