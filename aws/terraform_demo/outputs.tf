@@ -1,13 +1,5 @@
-output "dev_server_0" {
-    value = "http://${aws_instance.spacelysprocketsdev.0.public_dns}"
-}
-
-output "dev_server_1" {
-    value = "http://${aws_instance.spacelysprocketsdev.1.public_dns}"
-}
-
-output "dev_server_2" {
-    value = "http://${aws_instance.spacelysprocketsdev.2.public_dns}"
+output "dev_servers" {
+    value = ["${aws_instance.spacelysprocketsdev.*.public_dns}"]
 }
 
 output "dev_load_bal" {
