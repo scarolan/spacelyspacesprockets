@@ -162,8 +162,8 @@ resource "aws_route53_record" "www" {
   type    = "A"
 
   alias {
-    name = "${aws_lb.dev_lb.dns_name}"
-    zone_id = "Z3TRKO11GATMNO"
+    name = "dualstack.${aws_lb.dev_lb.dns_name}"
+    zone_id = "Z35SXDOTRQ7X7K"
     evaluate_target_health = true
   }
 }
