@@ -8,15 +8,15 @@ variable "user" {
 }
 
 # Stock AMI
-variable "demoami" {
-  default = "ami-26ebbc5c"
-}
+#variable "demoami" {
+#  default = "ami-26ebbc5c"
+#}
 
-# # Packer-built AMI
-# variable "demoami" {
-#   default = "ami-fc52ee84"
-#   description = "eCommerce Website - CentOS 7 - v0.3"
-# }
+# Packer-built AMI
+variable "demoami" {
+  default = "ami-02c46311a9120a828"
+  description = "eCommerce Website - CentOS 7 - v0.4"
+}
 
 variable "key_name" {
   description = "SSH key name in your AWS account for AWS instances."
