@@ -14,8 +14,8 @@ variable "user" {
 
 # Packer-built AMI
 variable "demoami" {
-  default = "ami-0b31135ffcb46ac12"
-  description = "eCommerce Website - CentOS 7 - v0.5"
+  default = "ami-0828d311e03921823"
+  description = "eCommerce Website - CentOS 7 - v0.6"
 }
 
 variable "key_name" {
@@ -23,13 +23,13 @@ variable "key_name" {
   default = "scarolan"
 }
 
-variable "private_ssh_key" {
-  description = "Private SSH key for accessing EC2 instances.  Must be uploaded/created in the AWS console."
-}
+#variable "private_ssh_key" {
+#  description = "Private SSH key for accessing EC2 instances.  Must be uploaded/created in the AWS console."
+#}
 
 variable "region" {
-  default     = "us-west-2"
   description = "The region of AWS, for AMI lookups."
+  default = "us-east-1"
 }
 
 variable "ecommerce_servers" {

@@ -2,6 +2,9 @@
 # HashiCorp Product Demo - ecommerce site - Apache, MySQL, Tomcat, Apache
 ##############################################################################
 
+provider "aws" {
+  region     = "${var.region}"
+}
 
 # Step 1 - Stand up cloud instance(s)
 resource "aws_instance" "spacelysprocketsdev" {
@@ -16,10 +19,10 @@ resource "aws_instance" "spacelysprocketsdev" {
     subnet_id = "${var.subnets[0]}"
 
     # This is the provisioning user
-    connection {
-        user = "${var.user}"
-        private_key = "${var.private_ssh_key}"
-    }
+    #connection {
+    #    user = "${var.user}"
+    #    private_key = "${var.private_ssh_key}"
+    #}
 
     # AWS Instance Tags
     tags {

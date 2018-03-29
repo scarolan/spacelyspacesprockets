@@ -3,7 +3,7 @@
 # Cookbook:: windows
 # Resource:: task
 #
-# Copyright:: 2012-2017, Chef Software, Inc.
+# Copyright:: 2012-2018, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@
 require 'chef/mixin/shell_out'
 require 'rexml/document'
 
-include Chef::Mixin::ShellOut
 include Chef::Mixin::PowershellOut
 
 property :task_name, String, name_property: true, regex: [/\A[^\/\:\*\?\<\>\|]+\z/]
