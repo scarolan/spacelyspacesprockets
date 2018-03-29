@@ -6,6 +6,6 @@ output "dev_load_bal" {
     value = "http://${aws_lb.dev_lb.dns_name}/"
 }
 
-# output "dev_homepage" {
-#     value = "http://${aws_route53_record.dev.name}/"
-# }
+output "dev_homepage" {
+    value = "http://${aws_route53_record.dev.name}/"
+}

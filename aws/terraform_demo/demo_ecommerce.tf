@@ -156,10 +156,10 @@ resource "aws_lb_target_group_attachment" "dev_tg_server" {
 }
 
 # # Create a DNS record for the dev environment 
-# resource "aws_route53_record" "dev" {
-#   zone_id = "Z2ZY8MQBWXTCMU"
-#   name    = "dev.spacelyspacesprockets.info"
-#   type    = "CNAME"
-#   ttl     = "5"
-#   records = ["${aws_lb.dev_lb.dns_name}"]
-# }
+resource "aws_route53_record" "dev" {
+  zone_id = "Z3TRKO11GATMNO"
+  name    = "dev.spacelyspacesprockets.info"
+  type    = "CNAME"
+  ttl     = "5"
+  records = ["${aws_lb.dev_lb.dns_name}"]
+}
