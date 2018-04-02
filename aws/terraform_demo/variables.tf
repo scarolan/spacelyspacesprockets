@@ -33,7 +33,6 @@ variable "region" {
 }
 
 variable "ecommerce_servers" {
-  default     = "1"
   description = "The number of demo ecommerce servers to launch."
 }
 
