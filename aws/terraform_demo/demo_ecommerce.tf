@@ -110,9 +110,10 @@ resource "aws_lb" "dev_lb" {
     internal            = false
     security_groups     = ["${aws_security_group.demo_ecommerce_dev.id}"]
     subnets             = ["${var.subnets[0]}","${var.subnets[1]}","${var.subnets[2]}"]
-    ip_address_type     = "ipv4"
     tags                = {
         Name = "ecommerce_dev_lb"
+        owner = "scarolan@hashicorp.com"
+        TTL = "8"
     }
 } 
 
