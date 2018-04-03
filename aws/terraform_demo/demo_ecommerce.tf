@@ -105,20 +105,20 @@ resource "aws_security_group" "ecommerce_sg" {
 
 # # Step 2 - Create two more machines and a load balancer
 # # Uncomment and `terraform apply` to continue the demo...
-resource "aws_lb" "dev_lb" {
-    name                = "ecommerce-${var.sudomain}-lb"
+resource "aws_lb" "ecom_lb" {
+    name                = "ecommerce-${var.subdomain}-lb"
     internal            = false
     security_groups     = ["${aws_security_group.ecommerce_sg.id}"]
     subnets             = ["${var.subnets[0]}","${var.subnets[1]}","${var.subnets[2]}"]
     tags                = {
-        Name = "ecommerce_dev_lb"
+        Name = "ecommerce_ecom_lb"
         owner = "scarolan@hashicorp.com"
         TTL = "8"
     }
 } 
 
 # # Create a target group
-resource "aws_lb_target_group" "dev_tg" {
+resource "aws_lb_target_group" "ecom_tg" {
   name     = "ecommerce-${var.subdomain}-tg"
   port     = 80
   protocol = "HTTP"
@@ -140,19 +140,19 @@ resource "aws_lb_target_group" "dev_tg" {
 
 # # Create a listener on port 80
 resource "aws_lb_listener" "http_listener" {
-  load_balancer_arn = "${aws_lb.dev_lb.arn}"
+  load_balancer_arn = "${aws_lb.ecom_lb.arn}"
   port              = "80"
   protocol          = "HTTP"
    default_action {
-    target_group_arn = "${aws_lb_target_group.dev_tg.arn}"
+    target_group_arn = "${aws_lb_target_group.ecom_tg.arn}"
     type             = "forward"
   }
 }
 
 # # Attach our instances to the target group
-resource "aws_lb_target_group_attachment" "dev_tg_server" {
+resource "aws_lb_target_group_attachment" "ecom_tg_server" {
   count            = "${var.ecommerce_servers}"
-  target_group_arn = "${aws_lb_target_group.dev_tg.arn}"
+  target_group_arn = "${aws_lb_target_group.ecom_tg.arn}"
   target_id        = "${element(aws_instance.spacelysprocketsdev.*.id, count.index)}" 
   port             = 80  
 }
@@ -164,7 +164,7 @@ resource "aws_route53_record" "subdomain" {
   type    = "A"
 
   alias {
-    name = "dualstack.${aws_lb.dev_lb.dns_name}"
+    name = "dualstack.${aws_lb.ecom_lb.dns_name}"
     zone_id = "Z35SXDOTRQ7X7K"
     evaluate_target_health = true
   }

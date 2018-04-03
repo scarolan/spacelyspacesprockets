@@ -1,11 +1,11 @@
-output "dev_servers" {
+output "web_servers" {
     value = ["${aws_instance.spacelysprocketsdev.*.public_dns}"]
 }
 
-output "dev_load_bal" {
-    value = "http://${aws_lb.dev_lb.dns_name}/"
+output "load_bal" {
+    value = "http://${aws_lb.ecom_lb.dns_name}/"
 }
 
-output "dev_homepage" {
+output "homepage" {
     value = "http://${aws_route53_record.subdomain.name}/"
 }
