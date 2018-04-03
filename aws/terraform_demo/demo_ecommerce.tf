@@ -12,7 +12,7 @@ resource "aws_instance" "spacelysprocketsdev" {
     instance_type = "${var.ecommerce_instance_type}"
     key_name = "${var.key_name}"
     count = "${var.ecommerce_servers}"
-    vpc_security_group_ids = ["${aws_security_group.demo_ecommerce_dev.id}"]
+    vpc_security_group_ids = ["${aws_security_group.ecommerce_sg.id}"]
     # This puts one server in each subnet, up to the total number of subnets.
     #subnet_id = "${lookup(var.subnets, count.index % var.ecommerce_servers)}"
     # This just crams them all in one subnet
@@ -46,8 +46,8 @@ resource "aws_instance" "spacelysprocketsdev" {
     #}
 }
 
-resource "aws_security_group" "demo_ecommerce_dev" {
-    name = "demo_ecommerce_dev"
+resource "aws_security_group" "ecommerce_sg" {
+    name = "ecommerce_sg_${var.subdomain}"
     description = "Ecommerce website security group"
     vpc_id = "${var.vpc_id}"
     # AWS Instance Tags
@@ -108,7 +108,7 @@ resource "aws_security_group" "demo_ecommerce_dev" {
 resource "aws_lb" "dev_lb" {
     name                = "ecommerce-dev-lb"
     internal            = false
-    security_groups     = ["${aws_security_group.demo_ecommerce_dev.id}"]
+    security_groups     = ["${aws_security_group.ecommerce_sg.id}"]
     subnets             = ["${var.subnets[0]}","${var.subnets[1]}","${var.subnets[2]}"]
     tags                = {
         Name = "ecommerce_dev_lb"
