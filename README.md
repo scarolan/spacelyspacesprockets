@@ -1,4 +1,4 @@
-# projectk
+# Spacely Space Sprockets - a Terraform Enterprise Demo
 Hashicorp Infrastructure Automation Demos
 
 ## Prerequisites

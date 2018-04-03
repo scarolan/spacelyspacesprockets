@@ -23,3 +23,9 @@ cookbook_file '/var/www/html/sprockets.png' do
   mode '0644'
   source 'sprockets.png'
 end
+
+cookbook_file '/var/www/html/CogswellCogs.jpg' do
+  action :create
+  mode '0644'
+  source 'CogswellCogs.jpg'
+end
