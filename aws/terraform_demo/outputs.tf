@@ -1,5 +1,5 @@
 output "web_servers" {
-    value = ["${aws_instance.spacelysprocketsdev.*.public_dns}"]
+    value = ["${aws_instance.spacelysprockets.*.public_dns}"]
 }
 
 output "load_bal" {

@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 # Step 1 - Stand up cloud instance(s)
-resource "aws_instance" "spacelysprocketsdev" {
+resource "aws_instance" "spacelysprockets" {
     ami = "${var.demoami}"
     instance_type = "${var.ecommerce_instance_type}"
     key_name = "${var.key_name}"
@@ -26,7 +26,7 @@ resource "aws_instance" "spacelysprocketsdev" {
 
     # AWS Instance Tags
     tags {
-        Name = "${var.ecomTagName}-dev-${count.index}"
+        Name = "${var.ecomTagName}-${var.subdomain}-${count.index}"
 	owner = "scarolan@hashicorp.com"
 	TTL = "8"
     }
@@ -52,7 +52,7 @@ resource "aws_security_group" "ecommerce_sg" {
     vpc_id = "${var.vpc_id}"
     # AWS Instance Tags
     tags {
-        Name = "dev-sg"
+        Name = "${var.subdomain}-sg"
     }
 
     // These are for internal traffic
@@ -153,11 +153,11 @@ resource "aws_lb_listener" "http_listener" {
 resource "aws_lb_target_group_attachment" "ecom_tg_server" {
   count            = "${var.ecommerce_servers}"
   target_group_arn = "${aws_lb_target_group.ecom_tg.arn}"
-  target_id        = "${element(aws_instance.spacelysprocketsdev.*.id, count.index)}" 
+  target_id        = "${element(aws_instance.spacelysprockets.*.id, count.index)}" 
   port             = 80  
 }
 
-# # Create a DNS record for the dev environment 
+# # Create a DNS record for the environment 
 resource "aws_route53_record" "subdomain" {
   zone_id = "Z3TRKO11GATMNO"
   name    = "${var.subdomain}.spacelyspacesprockets.info"
