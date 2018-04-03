@@ -27,6 +27,10 @@ variable "key_name" {
 #  description = "Private SSH key for accessing EC2 instances.  Must be uploaded/created in the AWS console."
 #}
 
+variable "subdomain" {
+  description = "Subdomain of your environment.  Example: dev1.spacelyspacesprockets.info"
+}
+
 variable "region" {
   description = "The region of AWS, for AMI lookups."
   default = "us-east-1"

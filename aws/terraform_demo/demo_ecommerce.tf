@@ -158,9 +158,9 @@ resource "aws_lb_target_group_attachment" "dev_tg_server" {
 }
 
 # # Create a DNS record for the dev environment 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "subdomain" {
   zone_id = "Z3TRKO11GATMNO"
-  name    = "spacelyspacesprockets.info"
+  name    = "${var.subdomain}.spacelyspacesprockets.info"
   type    = "A"
 
   alias {
