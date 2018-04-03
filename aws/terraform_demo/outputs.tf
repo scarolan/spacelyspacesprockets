@@ -7,5 +7,5 @@ output "dev_load_bal" {
 }
 
 output "dev_homepage" {
-    value = "http://${aws_route53_record.www.name}/"
+    value = "http://${aws_route53_record.subdomain.name}/"
 }
