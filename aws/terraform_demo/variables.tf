@@ -14,8 +14,8 @@ variable "user" {
 
 # Packer-built AMI
 variable "demoami" {
-  default = "ami-09e21458ac5e1b1e5"
-  description = "eCommerce Website - RHEL 7 - v1.0"
+  default = "ami-0e77fde94a8e3ef75"
+  description = "eCommerce Website - RHEL 7 - v1.1"
 }
 
 variable "key_name" {
