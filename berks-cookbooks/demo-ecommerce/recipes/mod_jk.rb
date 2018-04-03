@@ -26,6 +26,13 @@ cookbook_file '/usr/share/tomcat/webapps/ROOT/sprockets.png' do
   source 'sprockets.png'
 end
 
+cookbook_file '/usr/share/tomcat/webapps/ROOT/CogswellCogs.jpg' do
+  action :create
+  mode '0644'
+  source 'CogswellCogs.jpg'
+end
+
+
 # Install mod_jk
 cookbook_file '/etc/httpd/modules/mod_jk.so' do
   action :create
