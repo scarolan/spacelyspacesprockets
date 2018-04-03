@@ -1,7 +1,6 @@
 # Spacely Space Sprockets - a Terraform Enterprise Demo
 Hashicorp Infrastructure Automation Demos
 
-
 ## Prerequisites
 
 There are two demo environments you can build.  They can be run together at the same time, or separately from one another.  The first demo shows off Terraform and Packer.  The second demo highlights Consul and Vault.
