@@ -106,7 +106,7 @@ resource "aws_security_group" "ecommerce_sg" {
 # # Step 2 - Create two more machines and a load balancer
 # # Uncomment and `terraform apply` to continue the demo...
 resource "aws_lb" "dev_lb" {
-    name                = "ecommerce-dev-lb"
+    name                = "ecommerce-${var.sudomain}-lb"
     internal            = false
     security_groups     = ["${aws_security_group.ecommerce_sg.id}"]
     subnets             = ["${var.subnets[0]}","${var.subnets[1]}","${var.subnets[2]}"]
@@ -119,7 +119,7 @@ resource "aws_lb" "dev_lb" {
 
 # # Create a target group
 resource "aws_lb_target_group" "dev_tg" {
-  name     = "ecommerce-dev-tg"
+  name     = "ecommerce-${var.subdomain}-tg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = "${var.vpc_id}"
