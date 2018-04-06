@@ -47,7 +47,7 @@ variable "ecommerce_instance_type" {
 }
 
 variable "ecomTagName" {
-  default     = "ecommerce"
+  default     = "🚀 SpacelySprockets 🛸"
   description = "Name tag for the ecommerce servers"
 }
 
