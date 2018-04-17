@@ -17,6 +17,7 @@ variable "demoami" {
   default = "ami-03969108478119621"
   #default = ""
   description = "eCommerce Website - RHEL 7 - v1.0"
+
 }
 
 variable "key_name" {
@@ -47,7 +48,8 @@ variable "ecommerce_instance_type" {
 }
 
 variable "ecomTagName" {
-  default     = "ecommerce"
+  #default     = "🚀 SpacelySprockets 🛸"
+  default = "SpacelySprockets"
   description = "Name tag for the ecommerce servers"
 }
 
