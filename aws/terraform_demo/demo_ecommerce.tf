@@ -165,7 +165,7 @@ resource "aws_route53_record" "subdomain" {
 
   alias {
     name = "dualstack.${aws_lb.ecom_lb.dns_name}"
-    zone_id = "Z35SXDOTRQ7X7K"
+    zone_id = "Z1H1FL5HABSF5"
     evaluate_target_health = true
   }
 }
