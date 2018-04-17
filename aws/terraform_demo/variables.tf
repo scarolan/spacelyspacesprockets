@@ -7,16 +7,13 @@ variable "user" {
   default = "ec2-user"
 }
 
-# Stock AMI
-#variable "demoami" {
-#  default = "ami-26ebbc5c"
-#}
-
 # Packer-built AMI
 variable "demoami" {
-  default = "ami-03969108478119621"
-  #default = ""
-  description = "eCommerce Website - RHEL 7 - v1.0"
+  # Spacely Sprockets AMI
+  default = "ami-02e24b56fc62551ed"
+  # Cogswell Cogs AMI
+  #default = "ami-03969108478119621"
+  description = "eCommerce Website - RHEL 7 - v0.9"
 
 }
 
