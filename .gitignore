@@ -8,3 +8,6 @@
 
 # Berks cookbooks
 berks-cookbooks/
+
+# Variables
+terraform.tfvars
