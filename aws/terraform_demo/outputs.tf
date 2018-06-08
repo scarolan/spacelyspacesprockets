@@ -9,3 +9,7 @@ output "load_bal" {
 output "homepage" {
   value = "http://${aws_route53_record.subdomain.name}/"
 }
+
+output "text" {
+  value = "Hello world"
+}
