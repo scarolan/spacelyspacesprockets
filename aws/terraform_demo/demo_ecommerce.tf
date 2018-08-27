@@ -29,7 +29,7 @@ resource "aws_instance" "spacelysprockets" {
   tags {
     Name  = "${var.ecomTagName}-${var.subdomain}-${count.index}"
     owner = "scarolan@hashicorp.com"
-    TTL   = "8"
+    TTL   = "120"
   }
 
   ## Install Chef
