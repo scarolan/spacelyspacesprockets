@@ -10,4 +10,4 @@
 berks-cookbooks/
 
 # Variables
-terraform.tfvars
+*.tfvars
