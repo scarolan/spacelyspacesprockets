@@ -7,19 +7,27 @@ variable "user" {
   default = "ec2-user"
 }
 
+variable "owner" {
+  default = "team-se@hashicorp.com"
+}
+
+variable "demo_name" {
+  default = "spacelydemo"
+}
+
 # Packer-built AMI
 variable "demoami" {
   # Spacely Sprockets AMI
   default = "ami-02e24b56fc62551ed"
+
   # Cogswell Cogs AMI
   #default = "ami-03969108478119621"
   description = "eCommerce Website - RHEL 7 - v0.9"
-
 }
 
 variable "key_name" {
   description = "SSH key name in your AWS account for AWS instances."
-  default = "scarolan"
+  default     = "scarolan"
 }
 
 #variable "private_ssh_key" {
@@ -32,7 +40,7 @@ variable "subdomain" {
 
 variable "region" {
   description = "The region of AWS, for AMI lookups."
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "ecommerce_servers" {
@@ -46,22 +54,27 @@ variable "ecommerce_instance_type" {
 
 variable "ecomTagName" {
   #default     = "🚀 SpacelySprockets 🛸"
-  default = "SpacelySprockets"
+  default     = "SpacelySprockets"
   description = "Name tag for the ecommerce servers"
 }
 
 variable "subnets" {
-  type = "map"
+  type        = "map"
   description = "map of subnets to deploy your infrastructure in, must have as many keys as your server count (default 3), -var 'subnets={\"0\"=\"subnet-12345\",\"1\"=\"subnets-23456\"}' "
+
   default = {
-    "0" = "subnet-ff6ca0b5",
-    "1" = "subnet-b0f3c99f",
+    "0" = "subnet-ff6ca0b5"
+    "1" = "subnet-b0f3c99f"
     "2" = "subnet-f85f64a5"
   }
 }
 
 variable "vpc_id" {
-  type = "string"
+  type        = "string"
   description = "ID of the VPC to use - in case your account doesn't have default VPC"
-  default = "vpc-c45ccfbf"
+  default     = "vpc-c45ccfbf"
+}
+
+variable "domainname" {
+  default = "spacelyspacesprockets.info"
 }
