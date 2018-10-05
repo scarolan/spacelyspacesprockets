@@ -10,12 +10,18 @@ module "vpc" {
   source  = "app.terraform.io/spacelyspacesprockets/vpc/aws"
   version = "1.43.1"
 
-  azs              = [ "us-west-2a", "us-west-2b", "us-west-2c" ]
+  azs              = ["us-west-2a", "us-west-2b", "us-west-2c"]
   cidr             = "10.100.0.0/16"
   default_vpc_name = "${var.demo_name}"
-  default_vpc_tags = { "Name" = "${var.demo_name}", "owner" = "${var.owner}" }
-  name             = "${var.subdomain}-${var.demo_name}-vpc"
-  public_subnets   = ["10.100.10.0/24", "10.100.20.0/24", "10.100.30.0/24"]
+
+  default_vpc_tags = {
+    "Name" = "${var.demo_name}"
+
+    "owner" = "${var.owner}"
+  }
+
+  name           = "${var.subdomain}-${var.demo_name}-vpc"
+  public_subnets = ["10.100.10.0/24", "10.100.20.0/24", "10.100.30.0/24"]
 }
 
 resource "aws_instance" "spacelysprockets" {

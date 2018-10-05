@@ -17,20 +17,20 @@ variable "ami" {
   description = "AWS AMI Id, if you change, make sure it is compatible with instance type, not all AMIs allow all instance types "
 
   default = {
-    ap-south-1-ubuntu	  = "ami-08a5e367"
-    us-east-1-ubuntu	  = "ami-d651b8ac"
+    ap-south-1-ubuntu     = "ami-08a5e367"
+    us-east-1-ubuntu      = "ami-d651b8ac"
     ap-northeast-1-ubuntu = "ami-8422ebe2"
-    eu-west-1-ubuntu	  = "ami-17d11e6e"
+    eu-west-1-ubuntu      = "ami-17d11e6e"
     ap-southeast-1-ubuntu = "ami-e6d3a585"
-    ca-central-1-ubuntu	  = "ami-e59c2581"
-    us-west-1-ubuntu	  = "ami-2d5c6d4d"
-    eu-central-1-ubuntu	  = "ami-5a922335"
-    sa-east-1-ubuntu	  = "ami-a3e39ecf"
+    ca-central-1-ubuntu   = "ami-e59c2581"
+    us-west-1-ubuntu      = "ami-2d5c6d4d"
+    eu-central-1-ubuntu   = "ami-5a922335"
+    sa-east-1-ubuntu      = "ami-a3e39ecf"
     ap-southeast-2-ubuntu = "ami-391ff95b"
-    eu-west-2-ubuntu	  = "ami-e1f2e185"
+    eu-west-2-ubuntu      = "ami-e1f2e185"
     ap-northeast-2-ubuntu = "ami-0f6fb461"
-    us-west-2-ubuntu	  = "ami-ecc63a94"
-    us-east-2-ubuntu  	  = "ami-9686a4f3"
+    us-west-2-ubuntu      = "ami-ecc63a94"
+    us-east-2-ubuntu      = "ami-9686a4f3"
     us-east-1-rhel6       = "ami-0d28fe66"
     us-east-2-rhel6       = "ami-aff2a9ca"
     us-west-2-rhel6       = "ami-3d3c0a0d"
@@ -68,12 +68,12 @@ variable "service_conf_dest" {
 
 variable "key_name" {
   description = "SSH key name in your AWS account for AWS instances."
-  default = "scarolan_sa"
+  default     = "scarolan_sa"
 }
 
 variable "key_path" {
   description = "Path to the private key specified by key_name."
-  default = "/Users/seancarolan/.ssh/scarolan_sa.pem"
+  default     = "/Users/seancarolan/.ssh/scarolan_sa.pem"
 }
 
 variable "region" {
@@ -117,19 +117,20 @@ variable "vaultTagName" {
 }
 
 variable "subnets" {
-  type = "map"
+  type        = "map"
   description = "map of subnets to deploy your infrastructure in, must have as many keys as your server count (default 3), -var 'subnets={\"0\"=\"subnet-12345\",\"1\"=\"subnets-23456\"}' "
+
   default = {
-    "0" = "subnet-06afb46f",
-    "1" = "subnet-1160386a",
+    "0" = "subnet-06afb46f"
+    "1" = "subnet-1160386a"
     "2" = "subnet-5b2d4816"
   }
 }
 
 variable "vpc_id" {
-  type = "string"
+  type        = "string"
   description = "ID of the VPC to use - in case your account doesn't have default VPC"
-  default = "vpc-054c596c"
+  default     = "vpc-054c596c"
 }
 
 //-------------------------------------------------------------------
@@ -137,16 +138,16 @@ variable "vpc_id" {
 //-------------------------------------------------------------------
 
 variable "vault_ami" {
-    default = "ami-9686a4f3"
-    description = "AMI for Vault instances"
+  default     = "ami-9686a4f3"
+  description = "AMI for Vault instances"
 }
 
 variable "vault_instance_type" {
-    default = "t2.medium"
-    description = "Instance type for Vault instances"
+  default     = "t2.medium"
+  description = "Instance type for Vault instances"
 }
 
 variable "vault_nodes" {
-    default = "3"
-    description = "number of Vault instances"
+  default     = "3"
+  description = "number of Vault instances"
 }
