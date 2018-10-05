@@ -45,13 +45,8 @@ resource "aws_instance" "spacelysprockets" {
   # AWS Instance Tags
   tags {
     Name  = "${var.ecomTagName}-${var.subdomain}-${count.index}"
-<<<<<<< HEAD:aws/terraform_demo/main.tf
     owner = "${var.owner}"
     TTL   = "8"
-=======
-    owner = "scarolan@hashicorp.com"
-    TTL   = "120"
->>>>>>> 005f995df689d383dd172a4d11c6d1c2dd3ed2b0:aws/terraform_demo/demo_ecommerce.tf
   }
 
   ## Install Chef
