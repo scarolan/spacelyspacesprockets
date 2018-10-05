@@ -33,6 +33,10 @@ variable "subdomain" {
   description = "Subdomain of your environment.  Example: dev1.spacelyspacesprockets.info"
 }
 
+variable "domainname" {
+  default = "spacelyspacesprockets.info"
+}
+
 variable "region" {
   description = "The region of AWS, for AMI lookups."
   default     = "us-west-2"
