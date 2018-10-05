@@ -7,9 +7,17 @@ variable "user" {
   default = "ec2-user"
 }
 
+variable "owner" {
+  default = "team-se@hashicorp.com"
+}
+
+variable "demo_name" {
+  default = "spacelydemo"
+}
+
 # Packer-built AMI
 variable "demoami" {
-  description = "eCommerce Website AMI"
+  description = "AMI to use for the demo"
 }
 
 variable "key_name" {
@@ -23,6 +31,10 @@ variable "key_name" {
 
 variable "subdomain" {
   description = "Subdomain of your environment.  Example: dev1.spacelyspacesprockets.info"
+}
+
+variable "domainname" {
+  default = "spacelyspacesprockets.info"
 }
 
 variable "region" {
@@ -40,8 +52,8 @@ variable "ecommerce_instance_type" {
 }
 
 variable "ecomTagName" {
-  #default     = "🚀 SpacelySprockets 🛸"
-  default     = "SpacelySprockets"
+  default     = "🚀 SpacelySprockets 🛸"
+  #default     = "SpacelySprockets"
   description = "Name tag for the ecommerce servers"
 }
 
