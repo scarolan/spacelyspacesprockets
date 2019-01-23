@@ -112,6 +112,14 @@ resource "aws_security_group" "ecommerce_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+    
+   // For remote access via SSH
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   // This is for outbound internet access
   egress {
